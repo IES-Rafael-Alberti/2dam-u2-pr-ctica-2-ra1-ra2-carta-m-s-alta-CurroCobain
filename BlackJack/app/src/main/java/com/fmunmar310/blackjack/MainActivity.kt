@@ -26,7 +26,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.paint
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -62,7 +64,7 @@ fun Juego(){
     val miBaraja = Baraja
     Column( modifier = Modifier
         .fillMaxSize()
-        .background(color = Color.Green),
+        .paint(painter = painterResource(id = R.drawable.casino), contentScale = ContentScale.FillHeight),
         horizontalAlignment = Alignment.CenterHorizontally)
     {
         Image(painter = painterResource(id = context.resources.getIdentifier(cartaMostrar, "drawable", context.packageName) ),
