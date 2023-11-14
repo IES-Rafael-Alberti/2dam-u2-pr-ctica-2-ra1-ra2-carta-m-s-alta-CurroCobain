@@ -57,11 +57,15 @@ class MainActivity : ComponentActivity() {
 fun PrevJuego(){
     Juego()
 }
+
+// Función principal del juego
 @Composable
 fun Juego(){
+    // inicializamos las variables
     val context = LocalContext.current
     var cartaMostrar by rememberSaveable { mutableStateOf("reverso") }
     val miBaraja = Baraja
+    //Columna con una imagen , dos botones  y un texto que muestra el número de cartas que quedan en la baraja
     Column( modifier = Modifier
         .fillMaxSize()
         .paint(painter = painterResource(id = R.drawable.casino), contentScale = ContentScale.FillHeight),
@@ -78,7 +82,7 @@ fun Juego(){
                 .padding(top = 25.dp)
                 .fillMaxWidth(),
             horizontalArrangement = Arrangement.Center
-        ){
+        ){ // Botones de dame carta y reiniciar
             Button(
                 onClick = {
                     val micarta = miBaraja.cogerCarta()
@@ -103,6 +107,7 @@ fun Juego(){
         Row(modifier = Modifier.padding(top = 50.dp),
             horizontalArrangement = Arrangement.Center
             ){
+            // Texto que indica cuantas cartas quedan en la baraja
             Text(text = "Quedan ${miBaraja.tamaño} cartas en la baraja",
                 modifier = Modifier
                     .background(color = Color.White),
@@ -110,8 +115,4 @@ fun Juego(){
                 )
         }
     }
-    /*
-
-
-     */
 }

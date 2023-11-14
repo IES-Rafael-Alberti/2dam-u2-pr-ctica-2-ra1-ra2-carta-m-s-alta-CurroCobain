@@ -1,5 +1,11 @@
 package com.fmunmar310.blackjack
 
+/**
+ * Clase baraja
+ * @property listaCartas lista de cartas de la baraja
+ * @property tamaño indica la cantidad de cartas de la baraja
+ * @see Carta
+ */
 class Baraja {
     companion object{
         val listaCartas : ArrayList<Carta> = arrayListOf()
@@ -9,6 +15,11 @@ class Baraja {
             barajar()
         }
 
+        /**
+         * Crea la baraja de cartas desde las clases Naipes y Palos
+         * @see Naipes
+         * @see Palos
+         */
         fun creaBaraja(){
             listaCartas.clear()
             for(i in Palos.values()){
@@ -19,9 +30,17 @@ class Baraja {
             }
             tamaño = listaCartas.size
         }
+
+        /**
+         * Baraja las cartas
+         */
         fun barajar(){
             listaCartas.shuffle()
         }
+        /**
+         * Saca una carta de la baraja
+         * @return devuleve una carta de la baraja
+         */
         fun cogerCarta():Carta?{
             if (listaCartas.size>0) {
                 val cartaTemp = listaCartas.last()
